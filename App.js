@@ -13,6 +13,12 @@ export default function App() {
     ]);
   };
 
+  function deleteTaskHandler(id) {
+    setCourseTasks((currentCourseTasks) => {
+      return currentCourseTasks.filter((task) => task.id !== id)
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <TaskInput onAddTask={addTaskHandler} />
@@ -20,7 +26,13 @@ export default function App() {
         <FlatList
           data={courseTasks}
           renderItem={(itemData) => {
-            return <TaskItem text={itemData.item.text} />;
+            return (
+              <TaskItem
+                id={itemData.item.id}
+                text={itemData.item.text}
+                onDeleteItem={deleteTaskHandler}
+              />
+            );
           }}
           keyExtractor={(item, index) => {
             return item.id;
