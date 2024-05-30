@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     taskItem: {
         margin: 8,
         borderRadius: 6,
-        backgroundColor: '#1B4CB7',
+        backgroundColor: '#F2E2C6',
     },
     taskText: {
-        color: 'white',
+        color: '#444341',
         padding: 8,
     }
 });
